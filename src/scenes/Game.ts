@@ -11,6 +11,11 @@ export class Game extends Scene
         super('Game');
     }
 
+preload(){
+    
+}
+
+
     create ()
     {
         this.camera = this.cameras.main;
@@ -32,4 +37,31 @@ export class Game extends Scene
 
         });
     }
+    
+}
+preload ()
+{
+    this.load.image('sky', 'assets/sky.png');
+    this.load.image('ground', 'assets/platform.png');
+    this.load.image('star', 'assets/star.png');
+    this.load.image('bomb', 'assets/bomb.png');
+    this.load.image('dude', 
+        'assets/dude.png',
+        { framewidth: 32, frameHeight: 48 }
+    );
+}
+
+create ()
+{
+    this.add.image(400, 300, 'sky');
+
+    this.platforms.create(400, 568, 'ground').setScale(2).refreshBody();
+    this.platforms.create(600, 400, 'ground');
+    this.platforms.create(50, 250, 'ground');
+    this.platforms.create(750, 220, 'ground');
+
+}
+
+update() {
+
 }
